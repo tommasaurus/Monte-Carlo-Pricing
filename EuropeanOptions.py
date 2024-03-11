@@ -4,7 +4,7 @@ from scipy.stats import norm
 class EuropeanCall:
     def __init__(self, asset_price, volatility, strike_price, time_to_expiration, risk_free_rate):
         self.asset_price = asset_price
-        self.volatitlity = volatility
+        self.volatility = volatility
         self.strike_price = strike_price
         self.time_to_expiration = time_to_expiration
         self.risk_free_rate = risk_free_rate
@@ -24,7 +24,7 @@ class EuropeanCall:
 class EuropeanPut:
     def __init__(self, asset_price, volatility, strike_price, time_to_expiration, risk_free_rate):
         self.asset_price = asset_price
-        self.volatitlity = volatility
+        self.volatility = volatility
         self.strike_price = strike_price
         self.time_to_expiration = time_to_expiration
         self.risk_free_rate = risk_free_rate
@@ -43,4 +43,8 @@ class EuropeanPut:
     
 
 ec = EuropeanCall(100, .3, 100, 1, .01)
-print(ec.price)
+
+# Call the call_price method with the appropriate parameters to calculate the option price
+option_price = ec.call_price(ec.asset_price, ec.volatility, ec.strike_price, ec.time_to_expiration, ec.risk_free_rate)
+
+print(option_price)
